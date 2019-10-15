@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './task.module.css';
+import styles from './Task.module.css';
 
 export default function Task({ name, checkHandler, removeHandler, isChecked }) {
   return (

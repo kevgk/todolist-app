@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
-import Task from '../Task/Task';
-import { TodoContext } from '../../store/todo';
-import styles from './TaskList.module.css';
+import Task from './Task';
+import { TodoContext } from '../store/todo';
 
 export default function TaskList({ tasks }) {
-
   const { dispatch } = useContext(TodoContext);
 
   const taskElements = tasks.map(({ id, name, isChecked }) => (
@@ -17,7 +15,7 @@ export default function TaskList({ tasks }) {
       />
     ));
 
-  const Hint = <div className={styles.noTasksHint}>Let's get productive!</div>;
+  const Hint = <div className='noTasksHint'>Let's get productive!</div>;
 
   return (
     <ul>

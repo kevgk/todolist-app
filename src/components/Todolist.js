@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from 'react';
-import { TodoContext } from '../../store/todo';
-import TaskInput from '../TaskInput/TaskInput';
-import TaskCountFeedback from '../TaskCountFeedback/TaskCountFeedback';
-import TaskList from '../TaskList/TaskList';
-import styles from './Todolist.module.css';
+import { TodoContext } from '../store/todo';
+import TaskInput from './TaskInput';
+import TaskCountFeedback from './TaskCountFeedback';
+import TaskList from './TaskList';
 
 export default function Todolist() {
   const { state: tasks, dispatch } = useContext(TodoContext);
@@ -20,7 +19,7 @@ export default function Todolist() {
   const uncheckedTaskCount = tasks.length - tasks.filter(task => task.isChecked).length;
 
   return (
-    <div className={styles.app}>
+    <div className='app'>
       <TaskCountFeedback todoCount={uncheckedTaskCount}/>
       <h1>Todolist</h1>
       <TaskList tasks={tasks} dispatch={dispatch}/>      

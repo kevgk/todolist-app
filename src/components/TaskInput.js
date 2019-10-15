@@ -1,6 +1,5 @@
 import React, { useRef, useContext } from 'react';
-import { TodoContext } from '../../store/todo';
-import styles from './TaskInput.module.css';
+import { TodoContext } from '../store/todo';
 
 export default function TaskInput() {
   const taskInput = useRef();
@@ -16,8 +15,8 @@ export default function TaskInput() {
   }
 
   return (
-    <form className={styles.container} onSubmit={e => handleSubmit(e)}>
-      <input className={styles.taskInput} autoFocus placeholder="Add a task..." ref={taskInput}/>
+    <form className='taskContainer' onSubmit={e => handleSubmit(e)}>
+      <input className='taskInput' autoFocus placeholder="Add a task..." ref={taskInput}/>
     </form>
   );
 }

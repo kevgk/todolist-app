@@ -20,18 +20,6 @@
   top: 2px;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1) }
-  50% { transform: scale(1.2) }
-  100% { transform: scale(1) }
-}
-
-.task:hover .checkbox {
-  animation-name: pulse;
-  animation-duration: 0.6s;
-  animation-iteration-count: infinite;
-}
-
 .removeButton {
   border: none;
   background-color: transparent;

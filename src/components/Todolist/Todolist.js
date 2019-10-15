@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import Task from '../Task';
+import Task from '../Task/Task';
 import { TodoContext } from '../../store/todo';
 import TaskInput from '../TaskInput/TaskInput';
 import TaskCountFeedback from '../TaskCountFeedback/TaskCountFeedback';

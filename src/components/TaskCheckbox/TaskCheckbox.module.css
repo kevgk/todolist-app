@@ -1,0 +1,15 @@
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7047f5;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox > span {
+  transition: opacity 0.3s;
+  color: #fff;
+}

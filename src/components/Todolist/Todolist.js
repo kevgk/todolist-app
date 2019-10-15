@@ -22,7 +22,7 @@ export default function Todolist() {
     key={id}
     name={name}
     isChecked={isChecked}
-    checkHandler={() => dispatch({ type: 'TOGGLE_TODO', payload: { id } })}
+    clickHandler={() => dispatch({ type: 'TOGGLE_TODO', payload: { id } })}
     removeHandler={() => dispatch({ type: 'REMOVE_TODO', payload: { id } })}
     />
     ));

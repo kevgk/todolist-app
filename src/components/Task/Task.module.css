@@ -1,6 +1,6 @@
 .task {
   display: flex;
-  cursor: pointer;
+  cursor: default;
   background-color: #eee;
   padding: 7px 10px;
   border-radius: 10px;
@@ -51,4 +51,5 @@
 .removeButton {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }

@@ -1,0 +1,30 @@
+.container {
+  justify-self: flex-end;
+  margin-top: auto;
+}
+
+input {
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #7047f5;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input::selection {
+  background: #fff;
+  color: #7047f5;
+}
+
+input:focus {
+  box-shadow: 0 0 10px #7047f5;
+}
+

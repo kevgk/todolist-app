@@ -3,7 +3,7 @@
   margin-top: auto;
 }
 
-input {
+.taskInput {
   box-sizing: border-box;
   border-radius: 10px;
   background-color: #7047f5;
@@ -15,16 +15,16 @@ input {
   font-size: 15px;
 }
 
-input::placeholder {
+.taskInput::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-input::selection {
+.taskInput::selection {
   background: #fff;
   color: #7047f5;
 }
 
-input:focus {
+.taskInput:focus {
   box-shadow: 0 0 10px #7047f5;
 }
 

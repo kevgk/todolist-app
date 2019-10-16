@@ -11,35 +11,6 @@ beforeEach(() => {
   ];
 });
 
-describe('SET_TODO', () => {
-  it('Sets todos to array, containing one object', () => {
-    const payload = [{ id: 0, name: "test task"}];
-    const reduced = reducer(mockState, { type: 'SET_TASKS', payload });
-
-    expect(reduced).toEqual(payload);
-  });
-
-  it('Sets todos to array, containing multiple objects', () => {
-    const payload = [
-      { id: uuid(), name: "test task 1"},
-      { id: uuid(), name: "test task 2"},
-      { id: uuid(), name: "test task 3"}
-    ];
-
-    const reduced = reducer(mockState, { type: 'SET_TASKS', payload });
-
-    expect(reduced).toEqual(payload);
-  });
-
-  it('Set todos to empty array', () => {
-    const reduced = reducer(mockState, {
-      type: 'SET_TASKS', payload: []
-    });
-
-    expect(reduced).toEqual([]);
-  });
-});
-
 describe('ADD_TASK', () => {
   it('Add one task to empty state', () => {
     const name = "test task";
@@ -113,5 +84,34 @@ describe('TOGGLE_TASK', () => {
     const reduced = reducer(mockState, { type: 'TOGGLE_TASK', payload: { id: idToToggle } });
 
     expect(reduced[mockState.length - 1].isChecked).toBe(false);
+  });
+});
+
+describe('SET_TODO', () => {
+  it('Sets todos to array, containing one object', () => {
+    const payload = [{ id: 0, name: "test task"}];
+    const reduced = reducer(mockState, { type: 'SET_TASKS', payload });
+
+    expect(reduced).toEqual(payload);
+  });
+
+  it('Sets todos to array, containing multiple objects', () => {
+    const payload = [
+      { id: uuid(), name: "test task 1"},
+      { id: uuid(), name: "test task 2"},
+      { id: uuid(), name: "test task 3"}
+    ];
+
+    const reduced = reducer(mockState, { type: 'SET_TASKS', payload });
+
+    expect(reduced).toEqual(payload);
+  });
+
+  it('Set todos to empty array', () => {
+    const reduced = reducer(mockState, {
+      type: 'SET_TASKS', payload: []
+    });
+
+    expect(reduced).toEqual([]);
   });
 });

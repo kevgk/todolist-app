@@ -51,7 +51,7 @@ describe('ADD_TODO', () => {
       { id: '1', name: 'test task 2', isChecked: true },
       { id: '2', name: 'test task 3', isChecked: false },
     ];
-    
+
     const name = "test task";
     const reduced = reducer(populatedState, { type: 'ADD_TODO', payload: { name } });
 
@@ -64,5 +64,13 @@ describe('ADD_TODO', () => {
         })
       ])
     );
+  });
+});
+
+describe('REMOVE_TODO', () => {
+  it('handles remove for nonexistent id', () => {
+    const reduced = reducer([], { type: 'REMOVE_TODO', payload: { id: '5' } });
+    
+    expect(reduced).toEqual([]);
   });
 });

@@ -69,9 +69,9 @@ describe('ADD_TASK', () => {
   });
 });
 
-describe('REMOVE_TODO', () => {
+describe('REMOVE_TASK', () => {
   it('Handle remove for nonexistent id on empty state', () => {
-    const reduced = reducer([], { type: 'REMOVE_TODO', payload: { id: '5' } });
+    const reduced = reducer([], { type: 'REMOVE_TASK', payload: { id: '5' } });
     
     expect(reduced).toEqual([]);
   });
@@ -82,7 +82,7 @@ describe('REMOVE_TODO', () => {
       { id: uuid(), name: 'test task 2', isChecked: false },
     ];
 
-    const reduced = reducer(populatedState, { type: 'REMOVE_TODO', payload: { id: uuid() } });
+    const reduced = reducer(populatedState, { type: 'REMOVE_TASK', payload: { id: uuid() } });
     
     expect(reduced).toEqual(populatedState);
   });
@@ -95,7 +95,7 @@ describe('REMOVE_TODO', () => {
       { id: uuid(), name: 'test task 3', isChecked: false },
     ];
     
-    const reduced = reducer(populatedState, { type: ' REMOVE_TODO', payload: { id: idToRemove } });
+    const reduced = reducer(populatedState, { type: ' REMOVE_TASK', payload: { id: idToRemove } });
 
     expect(reduced).not.toContainEqual({id: idToRemove});
   });

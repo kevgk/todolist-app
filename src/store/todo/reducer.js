@@ -9,7 +9,7 @@ export const reducer = (state, { type, payload }) => {
         }
       ];
     }
-    case 'REMOVE_TODO': {
+    case 'REMOVE_TASK': {
       return state.filter(todo => todo.id !== payload.id);
     }
     case 'TOGGLE_TODO': {

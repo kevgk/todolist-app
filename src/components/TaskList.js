@@ -11,7 +11,7 @@ export default function TaskList({ tasks }) {
       name={name}
       isChecked={isChecked}
       clickHandler={() => dispatch({ type: 'TOGGLE_TODO', payload: { id } })}
-      removeHandler={() => dispatch({ type: 'REMOVE_TODO', payload: { id } })}
+      removeHandler={() => dispatch({ type: 'REMOVE_TASK', payload: { id } })}
       />
     ));
 

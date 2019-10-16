@@ -70,9 +70,33 @@ describe('ADD_TODO', () => {
 });
 
 describe('REMOVE_TODO', () => {
-  it('Handle remove for nonexistent id', () => {
+  it('Handle remove for nonexistent id on empty state', () => {
     const reduced = reducer([], { type: 'REMOVE_TODO', payload: { id: '5' } });
     
     expect(reduced).toEqual([]);
+  });
+
+  it('Handle remove for nonexistent id on populated state', () => {
+    const populatedState = [
+      { id: uuid(), name: 'test task 1', isChecked: false },
+      { id: uuid(), name: 'test task 2', isChecked: false },
+    ];
+
+    const reduced = reducer(populatedState, { type: 'REMOVE_TODO', payload: { id: uuid() } });
+    
+    expect(reduced).toEqual(populatedState);
+  });
+
+  it('Remove task', () => {
+    const idToRemove = uuid();
+    const populatedState = [
+      { id: uuid(), name: 'test task 1', isChecked: false },
+      { id: idToRemove, name: 'test task 2', isChecked: true },
+      { id: uuid(), name: 'test task 3', isChecked: false },
+    ];
+    
+    const reduced = reducer(populatedState, { type: ' REMOVE_TODO', payload: { id: idToRemove } });
+
+    expect(reduced).not.toContainEqual({id: idToRemove});
   });
 });

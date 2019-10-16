@@ -30,11 +30,11 @@ describe('SET_TODO', () => {
   });
 });
 
-describe('ADD_TODO', () => {
+describe('ADD_TASK', () => {
   it('Add one task to empty state', () => {
     const name = "test task";
     const id = uuid();
-    const reduced = reducer([], { type: 'ADD_TODO', payload: { id, name } });
+    const reduced = reducer([], { type: 'ADD_TASK', payload: { id, name } });
 
     expect(reduced).toEqual(
       expect.arrayContaining([
@@ -55,7 +55,7 @@ describe('ADD_TODO', () => {
     ];
 
     const name = "test task";
-    const reduced = reducer(populatedState, { type: 'ADD_TODO', payload: { id: uuid(), name } });
+    const reduced = reducer(populatedState, { type: 'ADD_TASK', payload: { id: uuid(), name } });
 
     expect(reduced).toEqual(
       expect.arrayContaining([

@@ -11,7 +11,7 @@ export function getTasksFromLocalStorage(dispatch) {
 
 export function addTask(dispatch, name) {
   dispatch({
-    type: 'ADD_TODO',
+    type: 'ADD_TASK',
     payload: {
       id: uuid(),
       name

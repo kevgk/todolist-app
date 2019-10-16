@@ -1,10 +1,10 @@
 import React, { createContext, useReducer } from 'react';
-import { reducer, initialState } from './index';
+import { reducer } from './index';
 
 export const TodoContext = createContext({});
 
 export function Provider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, []);
   
   const providerValue = { state, dispatch};
 

@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import localStorageSaveJSON from '../../utils/localStorageSaveJSON';
 
 export const reducer = (state, { type, payload }) => {
@@ -6,7 +5,7 @@ export const reducer = (state, { type, payload }) => {
     case 'ADD_TODO': {
       const newState = [
         ...state, {
-          id: uuid(),
+          id: payload.id,
           name: payload.name,
           isChecked: false
         }

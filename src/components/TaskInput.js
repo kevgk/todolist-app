@@ -1,6 +1,7 @@
 import React, { useRef, useContext, useEffect } from 'react';
 import { TodoContext } from '../store/todo';
 import localStorageSaveJSON from '../utils/localStorageSaveJSON';
+import { v4 as uuid } from 'uuid';
 
 export default function TaskInput() {
   const taskInput = useRef();
@@ -12,7 +13,7 @@ export default function TaskInput() {
     e.preventDefault();
 
     if (taskInput.current.value.length) {
-      dispatch({ type: 'ADD_TODO', payload: { name: taskInput.current.value }});
+      dispatch({ type: 'ADD_TODO', payload: { id: uuid(), name: taskInput.current.value }});
       taskInput.current.value = '';
     }
   }

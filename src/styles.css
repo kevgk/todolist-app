@@ -1,7 +1,13 @@
+:root {
+  --primary-color: #7047f5;
+  --secondary-color: #ff264a;
+  --background-color: #f2effa;
+}
+
 body {
   background-image: url(assets/images/bg.jpeg);
   background-size: cover;
-  background-color: #f2effa;
+  background-color: var(--background-color);
   font-family: 'Varela Round', sans-serif;
   height: 100vh;
   overflow-y: hidden;
@@ -59,7 +65,7 @@ h1 {
   font-size: 24px;
   padding: 0 0 10px;
   font-weight: 400;
-  color: rgb(255, 38, 74);
+  color: var(--secondary-color);
   font-family: 'Paytone One';
 }
 
@@ -96,7 +102,7 @@ h1 {
   height: 20px;
   border: none;
   border-radius: 5px;
-  background-color: #7047f5;
+  background-color: var(--primary-color);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -124,7 +130,7 @@ h1 {
 .taskInput {
   box-sizing: border-box;
   border-radius: 10px;
-  background-color: #7047f5;
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
   padding: 10px;
@@ -139,11 +145,11 @@ h1 {
 
 .taskInput::selection {
   background: #fff;
-  color: #7047f5;
+  color: var(--primary-color);
 }
 
 .taskInput:focus {
-  box-shadow: 0 0 10px #7047f5;
+  box-shadow: 0 0 10px var(--primary-color);
 }
 
 .noTasksHint {

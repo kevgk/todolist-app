@@ -18,7 +18,7 @@ export const reducer = (state, { type, payload }) => {
       newState[index].isChecked = !state[index].isChecked;
       return newState;
     }
-    case 'SET_TODOS':
+    case 'SET_TASKS':
         return payload;
     default: return state;
   }

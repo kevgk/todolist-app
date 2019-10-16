@@ -4,7 +4,7 @@ export function getTasksFromLocalStorage(dispatch) {
   if (localStorage) {
     const offlineTasks = localStorage.getItem('tasks');
     if (offlineTasks) {
-      dispatch({ type: 'SET_TODOS', payload: JSON.parse(offlineTasks) });
+      dispatch({ type: 'SET_TASKS', payload: JSON.parse(offlineTasks) });
     }
   }
 }

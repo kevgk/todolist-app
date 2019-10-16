@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 describe('SET_TODO', () => {
   it('Sets todos to array, containing one object', () => {
     const payload = [{ id: 0, name: "test task"}];
-    const reduced = reducer([], { type: 'SET_TODOS', payload });
+    const reduced = reducer([], { type: 'SET_TASKS', payload });
 
     expect(reduced).toEqual(payload);
   });
@@ -16,14 +16,14 @@ describe('SET_TODO', () => {
       { id: 2, name: "test task 3"}
     ];
 
-    const reduced = reducer([], { type: 'SET_TODOS', payload });
+    const reduced = reducer([], { type: 'SET_TASKS', payload });
 
     expect(reduced).toEqual(payload);
   });
 
   it('Set todos to empty array', () => {
     const reduced = reducer([], {
-      type: 'SET_TODOS', payload: []
+      type: 'SET_TASKS', payload: []
     });
 
     expect(reduced).toEqual([]);

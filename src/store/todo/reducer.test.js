@@ -100,3 +100,31 @@ describe('REMOVE_TASK', () => {
     expect(reduced).not.toContainEqual({id: idToRemove});
   });
 });
+
+describe('TOGGLE_TASK', () => {
+  it('changes state from false to true', () => {
+    const idToToggle = uuid();
+    const populatedState = [
+      { id: uuid(), name: 'test task 1', isChecked: false },
+      { id: idToToggle, name: 'test task 2', isChecked: false },
+      { id: uuid(), name: 'test task 3', isChecked: true },
+    ];
+
+    const reduced = reducer(populatedState, { type: 'TOGGLE_TASK', payload: { id: idToToggle } });
+
+    expect(reduced[1].isChecked).toBe(true);
+  });
+
+  it('changes state from true to false', () => {
+    const idToToggle = uuid();
+    const populatedState = [
+      { id: uuid(), name: 'test task 1', isChecked: false },
+      { id: idToToggle, name: 'test task 2', isChecked: true },
+      { id: uuid(), name: 'test task 3', isChecked: true },
+    ];
+
+    const reduced = reducer(populatedState, { type: 'TOGGLE_TASK', payload: { id: idToToggle } });
+
+    expect(reduced[1].isChecked).toBe(false);
+  });
+});

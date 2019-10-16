@@ -12,7 +12,7 @@ export const reducer = (state, { type, payload }) => {
     case 'REMOVE_TASK': {
       return state.filter(todo => todo.id !== payload.id);
     }
-    case 'TOGGLE_TODO': {
+    case 'TOGGLE_TASK': {
       const index = state.findIndex(todo => todo.id === payload.id);
       const newState = [...state];
       newState[index].isChecked = !state[index].isChecked;

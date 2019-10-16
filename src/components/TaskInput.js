@@ -1,30 +1,19 @@
-import React, { useRef, useContext, useEffect } from 'react';
+import React, { useRef, useContext } from 'react';
 import { TodoContext } from '../store/todo';
-import localStorageSaveJSON from '../utils/localStorageSaveJSON';
-import { v4 as uuid } from 'uuid';
+import { addTask } from '../store/todo/actions';
 
 export default function TaskInput() {
   const taskInput = useRef();
-  const { state, dispatch } = useContext(TodoContext);
-
-  const isFirstRun = useRef(true);
+  const { dispatch } = useContext(TodoContext);
 
   const handleSubmit = e => {
     e.preventDefault();
 
     if (taskInput.current.value.length) {
-      dispatch({ type: 'ADD_TODO', payload: { id: uuid(), name: taskInput.current.value }});
+      addTask(dispatch, taskInput.current.value);
       taskInput.current.value = '';
     }
   }
-
-  useEffect(() => {
-    if (isFirstRun.current) {
-      isFirstRun.current = false;
-      return;
-    }
-    localStorageSaveJSON('tasks', state);
-  }, [state]);
 
   return (
     <form className='taskContainer' onSubmit={e => handleSubmit(e)}>

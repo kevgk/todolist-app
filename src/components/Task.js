@@ -6,7 +6,9 @@ export default function Task({ name, clickHandler, removeHandler, isChecked }) {
     <li className='task'>
       <TaskCheckbox isChecked={isChecked} clickHandler={clickHandler}/>
       <span className='taskname'>{name}</span>
-      {isChecked && <button className='removeButton' onClick={() => removeHandler()}>x</button>}
+      {isChecked && 
+        <button className='removeButton' onClick={() => removeHandler()}>x</button>
+      }
     </li>
   );
 }

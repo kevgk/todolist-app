@@ -1,10 +1,8 @@
-import React, { useRef, useContext } from 'react';
-import { TodoContext } from '../store/todo';
-import { addTask } from '../store/todo/actions';
+import React, { useRef } from 'react';
+import { addTask } from '../store/actions';
 
-export default function TaskInput() {
+export default function TaskInput({ dispatch }) {
 	const taskInput = useRef();
-	const { dispatch } = useContext(TodoContext);
 
 	const handleSubmit = e => {
 		e.preventDefault();

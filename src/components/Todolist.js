@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { TodoContext } from '../store/todo';
+import React, { useReducer, useEffect, useRef } from 'react';
+import { reducer } from '../store/reducer';
 import TaskInput from './TaskInput';
 import TaskCountFeedback from './TaskCountFeedback';
 import TaskList from './TaskList';
 import localStorageSaveJSON from '../utils/localStorageSaveJSON';
-import { getTasksFromLocalStorage } from '../store/todo/actions';
+import { getTasksFromLocalStorage } from '../store/actions';
 
 export default function Todolist() {
-	const { state: tasks, dispatch } = useContext(TodoContext);
+	const [tasks, dispatch] = useReducer(reducer, []);
 	const isFirstRun = useRef(true);
 
 	useEffect(() => {
@@ -22,15 +22,12 @@ export default function Todolist() {
 		localStorageSaveJSON('tasks', tasks);
 	}, [tasks]);
 
-	const uncheckedTaskCount =
-		tasks.length - tasks.filter(task => task.isChecked).length;
-
 	return (
 		<div className='app'>
-			<TaskCountFeedback todoCount={uncheckedTaskCount} />
+			<TaskCountFeedback tasks={tasks} />
 			<h1>Todolist</h1>
 			<TaskList tasks={tasks} dispatch={dispatch} />
-			<TaskInput />
+			<TaskInput dispatch={dispatch} />
 		</div>
 	);
 }

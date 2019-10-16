@@ -1,15 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Task from './Task';
-import { TodoContext } from '../store/todo';
 import PropTypes from 'prop-types';
 
 TaskList.propTypes = {
 	tasks: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default function TaskList({ tasks }) {
-	const { dispatch } = useContext(TodoContext);
-
+export default function TaskList({ tasks, dispatch }) {
 	const taskElements = tasks.map(({ id, name, isChecked }) => (
 		<Task
 			key={id}

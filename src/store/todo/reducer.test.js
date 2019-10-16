@@ -11,6 +11,13 @@ beforeEach(() => {
 	];
 });
 
+describe('NO_ACTION', () => {
+	it('Returns initial state', () => {
+		const reduced = reducer([]);
+		expect(reduced).toEqual([]);
+	});
+});
+
 describe('ADD_TASK', () => {
 	it('Add one task to empty state', () => {
 		const name = 'test task';

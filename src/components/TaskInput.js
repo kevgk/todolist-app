@@ -1,9 +1,12 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useEffect } from 'react';
 import { TodoContext } from '../store/todo';
+import localStorageSaveJSON from '../utils/localStorageSaveJSON';
 
 export default function TaskInput() {
   const taskInput = useRef();
-  const { dispatch } = useContext(TodoContext);
+  const { state, dispatch } = useContext(TodoContext);
+
+  const isFirstRun = useRef(true);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -13,6 +16,14 @@ export default function TaskInput() {
       taskInput.current.value = '';
     }
   }
+
+  useEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+      return;
+    }
+    localStorageSaveJSON('tasks', state);
+  }, [state]);
 
   return (
     <form className='taskContainer' onSubmit={e => handleSubmit(e)}>

@@ -11,7 +11,6 @@ export const reducer = (state, { type, payload }) => {
           isChecked: false
         }
       ];
-      localStorageSaveJSON('tasks', newState);
       return newState;
     }
     case 'REMOVE_TODO': {

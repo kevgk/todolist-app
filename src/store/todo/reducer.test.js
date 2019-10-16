@@ -1,4 +1,5 @@
 import { reducer } from './reducer';
+import { v4 as uuid } from 'uuid';
 
 describe('SET_TODO', () => {
   it('Sets todos to array, containing one object', () => {
@@ -32,7 +33,7 @@ describe('SET_TODO', () => {
 describe('ADD_TODO', () => {
   it('Add one task to empty state', () => {
     const name = "test task";
-    const reduced = reducer([], { type: 'ADD_TODO', payload: { name } });
+    const reduced = reducer([], { type: 'ADD_TODO', payload: { id: uuid(), name } });
 
     expect(reduced).toEqual(
       expect.arrayContaining([
@@ -53,7 +54,7 @@ describe('ADD_TODO', () => {
     ];
 
     const name = "test task";
-    const reduced = reducer(populatedState, { type: 'ADD_TODO', payload: { name } });
+    const reduced = reducer(populatedState, { type: 'ADD_TODO', payload: { id: uuid(), name } });
 
     expect(reduced).toEqual(
       expect.arrayContaining([

@@ -4,13 +4,13 @@ import { reducer } from './index';
 export const TodoContext = createContext({});
 
 export function Provider({ children }) {
-  const [state, dispatch] = useReducer(reducer, []);
-  
-  const providerValue = { state, dispatch};
+	const [state, dispatch] = useReducer(reducer, []);
 
-  return (
-    <TodoContext.Provider value={providerValue}>
-      {children}
-    </TodoContext.Provider>
-  );
+	const providerValue = { state, dispatch };
+
+	return (
+		<TodoContext.Provider value={providerValue}>
+			{children}
+		</TodoContext.Provider>
+	);
 }

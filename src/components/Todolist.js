@@ -7,29 +7,30 @@ import localStorageSaveJSON from '../utils/localStorageSaveJSON';
 import { getTasksFromLocalStorage } from '../store/todo/actions';
 
 export default function Todolist() {
-  const { state: tasks, dispatch } = useContext(TodoContext);
-  const isFirstRun = useRef(true);
+	const { state: tasks, dispatch } = useContext(TodoContext);
+	const isFirstRun = useRef(true);
 
-  useEffect(() => {
-    getTasksFromLocalStorage(dispatch);
-  }, [dispatch]);
+	useEffect(() => {
+		getTasksFromLocalStorage(dispatch);
+	}, [dispatch]);
 
-  useEffect(() => {
-    if (isFirstRun.current) {
-      isFirstRun.current = false;
-      return;
-    }
-    localStorageSaveJSON('tasks', tasks);
-  }, [tasks]);
+	useEffect(() => {
+		if (isFirstRun.current) {
+			isFirstRun.current = false;
+			return;
+		}
+		localStorageSaveJSON('tasks', tasks);
+	}, [tasks]);
 
-  const uncheckedTaskCount = tasks.length - tasks.filter(task => task.isChecked).length;
+	const uncheckedTaskCount =
+		tasks.length - tasks.filter(task => task.isChecked).length;
 
-  return (
-    <div className='app'>
-      <TaskCountFeedback todoCount={uncheckedTaskCount}/>
-      <h1>Todolist</h1>
-      <TaskList tasks={tasks} dispatch={dispatch}/>      
-      <TaskInput/>
-    </div>
-  );
+	return (
+		<div className='app'>
+			<TaskCountFeedback todoCount={uncheckedTaskCount} />
+			<h1>Todolist</h1>
+			<TaskList tasks={tasks} dispatch={dispatch} />
+			<TaskInput />
+		</div>
+	);
 }

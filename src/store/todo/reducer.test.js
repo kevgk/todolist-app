@@ -70,7 +70,7 @@ describe('ADD_TODO', () => {
 });
 
 describe('REMOVE_TODO', () => {
-  it('handles remove for nonexistent id', () => {
+  it('Handle remove for nonexistent id', () => {
     const reduced = reducer([], { type: 'REMOVE_TODO', payload: { id: '5' } });
     
     expect(reduced).toEqual([]);

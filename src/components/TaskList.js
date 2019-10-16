@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import Task from './Task';
 import { TodoContext } from '../store/todo';
+import PropTypes from 'prop-types';
+
+TaskList.propTypes = {
+	tasks: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default function TaskList({ tasks }) {
 	const { dispatch } = useContext(TodoContext);

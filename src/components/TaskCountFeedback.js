@@ -1,4 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+TaskCountFeedback.propTypes = {
+	todoCount: PropTypes.number.isRequired
+};
 
 export default function TaskCountFeedback({ todoCount = 0 }) {
 	return (

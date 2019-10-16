@@ -1,5 +1,13 @@
 import React from 'react';
 import TaskCheckbox from './TaskCheckbox';
+import PropTypes from 'prop-types';
+
+Task.propTypes = {
+	name: PropTypes.string.isRequired,
+	clickHandler: PropTypes.func.isRequired,
+	removeHandler: PropTypes.func.isRequired,
+	isChecked: PropTypes.bool.isRequired
+};
 
 export default function Task({ name, clickHandler, removeHandler, isChecked }) {
 	return (

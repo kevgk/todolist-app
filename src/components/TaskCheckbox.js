@@ -1,4 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+TaskCheckbox.propTypes = {
+	clickHandler: PropTypes.func.isRequired,
+	isChecked: PropTypes.bool.isRequired
+};
 
 export default function TaskCheckbox({ clickHandler, isChecked }) {
 	return (

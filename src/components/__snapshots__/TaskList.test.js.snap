@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly (1 checked task) 1`] = `
+<ul>
+  <li
+    className="task"
+  >
+    <button
+      className="checkbox"
+      onClick={[Function]}
+    >
+      <span
+        aria-label="check task"
+        role="img"
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        ✔
+      </span>
+    </button>
+    <span
+      className="taskname"
+    >
+      Test Task 1
+    </span>
+    <button
+      className="removeButton"
+      onClick={[Function]}
+    >
+      x
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`renders correctly (1 unchecked task) 1`] = `
+<ul>
+  <li
+    className="task"
+  >
+    <button
+      className="checkbox"
+      onClick={[Function]}
+    >
+      <span
+        aria-label="check task"
+        role="img"
+        style={
+          Object {
+            "opacity": 0.1,
+          }
+        }
+      >
+        ✔
+      </span>
+    </button>
+    <span
+      className="taskname"
+    >
+      Test Task 1
+    </span>
+  </li>
+</ul>
+`;
+
+exports[`renders correctly (no tasks) 1`] = `
+<ul>
+  <li
+    className="task"
+  >
+    <button
+      className="checkbox"
+      onClick={[Function]}
+    >
+      <span
+        aria-label="check task"
+        role="img"
+        style={
+          Object {
+            "opacity": 0.1,
+          }
+        }
+      >
+        ✔
+      </span>
+    </button>
+    <span
+      className="taskname"
+    >
+      Test Task 1
+    </span>
+  </li>
+</ul>
+`;

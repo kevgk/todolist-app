@@ -1,5 +1,10 @@
 import React, { useRef } from 'react';
 import { addTask } from '../store/actions';
+import PropTypes from 'prop-types';
+
+TaskInput.propTypes = {
+	dispatch: PropTypes.func.isRequired
+};
 
 export default function TaskInput({ dispatch }) {
 	const taskInput = useRef();

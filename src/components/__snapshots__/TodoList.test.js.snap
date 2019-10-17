@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="container"
+  >
+    <span
+      aria-label="Todo count feedback"
+      role="img"
+    >
+      😻
+    </span>
+  </div>
+  <h1>
+    Todolist
+  </h1>
+  <ul>
+    <div
+      className="noTasksHint"
+    >
+      Let's get productive!
+    </div>
+  </ul>
+  <form
+    className="taskContainer"
+    onSubmit={[Function]}
+  >
+    <input
+      autoFocus={true}
+      className="taskInput"
+      placeholder="Add a task..."
+    />
+  </form>
+</div>
+`;

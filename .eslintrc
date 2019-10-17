@@ -1,0 +1,7 @@
+{
+	"extends": ["react-app", "plugin:jest/recommended"],
+	"plugins": ["jest"],
+	"env": {
+		"jest/globals": true
+	}
+}

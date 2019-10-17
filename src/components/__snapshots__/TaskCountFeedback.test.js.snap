@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly (0 open tasks) 1`] = `
+<div
+  className="container"
+>
+  <span
+    aria-label="Todo count feedback"
+    role="img"
+  >
+    😻
+  </span>
+</div>
+`;
+
+exports[`renders correctly (1 open tasks) 1`] = `
+<div
+  className="container"
+>
+  <span
+    aria-label="Todo count feedback"
+    role="img"
+  >
+    🙀
+  </span>
+</div>
+`;

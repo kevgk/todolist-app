@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly (checked) 1`] = `
+<button
+  className="checkbox"
+  onClick={[Function]}
+>
+  <span
+    aria-label="check task"
+    role="img"
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    ✔
+  </span>
+</button>
+`;
+
+exports[`renders correctly (unchecked) 1`] = `
+<button
+  className="checkbox"
+  onClick={[Function]}
+>
+  <span
+    aria-label="check task"
+    role="img"
+    style={
+      Object {
+        "opacity": 0.1,
+      }
+    }
+  >
+    ✔
+  </span>
+</button>
+`;

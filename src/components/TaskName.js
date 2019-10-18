@@ -4,36 +4,42 @@ export default function TaskName({ name, renameHandler }) {
 	const [editMode, setEditMode] = useState(false);
 	const inputRef = useRef();
 
-	const onSave = () => {
+	const onSave = e => {
 		setEditMode(false);
 		renameHandler(inputRef.current.value);
 	};
 
 	const onAbort = e => {
-		if (e.keyCode === 27) {
-			setEditMode(false);
-			inputRef.current.value = name;
-		}
+		inputRef.current.value = name;
+		setEditMode(false);
 	};
 
 	const onEdit = () => {
 		setEditMode(true);
 	};
 
+	const onKeyUp = e => {
+		if (e.keyCode === 13) onSave();
+		else if (e.keyCode === 27) onAbort();
+	};
+
 	return (
-		<div className='taskname' onClick={onEdit}>
+		<div className='taskname'>
 			{editMode ? (
 				<form onSubmit={onSave}>
 					<input
 						autoFocus
 						ref={inputRef}
 						defaultValue={name}
-						onKeyUp={onAbort}
-						onBlur={onSave}
+						onKeyUp={onKeyUp}
+						onBlur={onAbort}
 					/>
+					<div onClick={onAbort}>cancel</div>
 				</form>
 			) : (
-				<span>{name}</span>
+				<div className='name' onClick={onEdit}>
+					{name}
+				</div>
 			)}
 		</div>
 	);

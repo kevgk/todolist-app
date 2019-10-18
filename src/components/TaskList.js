@@ -1,5 +1,6 @@
 import React from 'react';
 import Task from './Task';
+import { toggleTask, removeTask, renameTask } from '../store/actions';
 import PropTypes from 'prop-types';
 
 TaskList.propTypes = {
@@ -12,14 +13,9 @@ export default function TaskList({ tasks, dispatch, setModal }) {
 			key={id}
 			name={name}
 			isChecked={isChecked}
-			clickHandler={() => dispatch({ type: 'TOGGLE_TASK', payload: { id } })}
-			removeHandler={() => dispatch({ type: 'REMOVE_TASK', payload: { id } })}
-			renameHandler={newName =>
-				dispatch({
-					type: 'RENAME_TASK',
-					payload: { id, newName }
-				})
-			}
+			clickHandler={() => toggleTask(dispatch, id)}
+			removeHandler={() => removeTask(dispatch, id)}
+			renameHandler={newName => renameTask(dispatch, id, newName)}
 			setModal={setModal}
 		/>
 	));

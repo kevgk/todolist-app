@@ -18,3 +18,18 @@ export function addTask(dispatch, name) {
 		}
 	});
 }
+
+export function toggleTask(dispatch, id) {
+	dispatch({ type: 'TOGGLE_TASK', payload: { id } });
+}
+
+export function removeTask(dispatch, id) {
+	dispatch({ type: 'REMOVE_TASK', payload: { id } });
+}
+
+export function renameTask(dispatch, id, newName) {
+	dispatch({
+		type: 'RENAME_TASK',
+		payload: { id, newName }
+	});
+}

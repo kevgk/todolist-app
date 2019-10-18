@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import TaskCheckbox from './TaskCheckbox';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ Task.propTypes = {
 	isChecked: PropTypes.bool.isRequired
 };
 
-export default function Task({ name, clickHandler, removeHandler, isChecked }) {
+function Task({ name, clickHandler, removeHandler, isChecked }) {
 	return (
 		<li className='task'>
 			<TaskCheckbox isChecked={isChecked} clickHandler={clickHandler} />
@@ -22,3 +22,5 @@ export default function Task({ name, clickHandler, removeHandler, isChecked }) {
 		</li>
 	);
 }
+
+export default memo(Task);

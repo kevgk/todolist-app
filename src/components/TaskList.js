@@ -7,7 +7,7 @@ TaskList.propTypes = {
 	tasks: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default function TaskList({ tasks, dispatch, setModal }) {
+export default function TaskList({ tasks, dispatch }) {
 	const taskElements = tasks.map(({ id, name, isChecked }) => (
 		<Task
 			key={id}
@@ -16,7 +16,6 @@ export default function TaskList({ tasks, dispatch, setModal }) {
 			clickHandler={() => toggleTask(dispatch, id)}
 			removeHandler={() => removeTask(dispatch, id)}
 			renameHandler={newName => renameTask(dispatch, id, newName)}
-			setModal={setModal}
 		/>
 	));
 

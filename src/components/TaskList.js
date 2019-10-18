@@ -6,7 +6,7 @@ TaskList.propTypes = {
 	tasks: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default function TaskList({ tasks, dispatch }) {
+export default function TaskList({ tasks, dispatch, setModal }) {
 	const taskElements = tasks.map(({ id, name, isChecked }) => (
 		<Task
 			key={id}
@@ -14,6 +14,13 @@ export default function TaskList({ tasks, dispatch }) {
 			isChecked={isChecked}
 			clickHandler={() => dispatch({ type: 'TOGGLE_TASK', payload: { id } })}
 			removeHandler={() => dispatch({ type: 'REMOVE_TASK', payload: { id } })}
+			renameHandler={newName =>
+				dispatch({
+					type: 'RENAME_TASK',
+					payload: { id, newName }
+				})
+			}
+			setModal={setModal}
 		/>
 	));
 

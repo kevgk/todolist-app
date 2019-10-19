@@ -4,7 +4,8 @@ import { toggleTask, removeTask, renameTask } from '../store/actions';
 import PropTypes from 'prop-types';
 
 TaskList.propTypes = {
-	tasks: PropTypes.arrayOf(PropTypes.object).isRequired
+	tasks: PropTypes.arrayOf(PropTypes.object).isRequired,
+	dispatch: PropTypes.func.isRequired
 };
 
 export default function TaskList({ tasks, dispatch }) {

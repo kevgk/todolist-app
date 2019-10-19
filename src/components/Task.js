@@ -7,6 +7,7 @@ Task.propTypes = {
 	name: PropTypes.string.isRequired,
 	clickHandler: PropTypes.func.isRequired,
 	removeHandler: PropTypes.func.isRequired,
+	renameHandler: PropTypes.func.isRequired,
 	isChecked: PropTypes.bool.isRequired
 };
 

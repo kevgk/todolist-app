@@ -1,4 +1,10 @@
 import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+
+TaskName.propTypes = {
+	name: PropTypes.string.isRequired,
+	renameHandler: PropTypes.func.isRequired
+};
 
 export default function TaskName({ name, renameHandler }) {
 	const [editMode, setEditMode] = useState(false);

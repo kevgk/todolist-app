@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
-export function getTasksFromLocalStorage(dispatch) {
+export function getTasksFromLocalStorage(dispatch: (action: object) => void) {
 	if (localStorage) {
 		const offlineTasks = localStorage.getItem('tasks');
 		if (offlineTasks) {
@@ -9,7 +9,7 @@ export function getTasksFromLocalStorage(dispatch) {
 	}
 }
 
-export function addTask(dispatch, name) {
+export function addTask(dispatch: (action: object) => void, name: string) {
 	dispatch({
 		type: 'ADD_TASK',
 		payload: {
@@ -19,15 +19,19 @@ export function addTask(dispatch, name) {
 	});
 }
 
-export function toggleTask(dispatch, id) {
+export function toggleTask(dispatch: (action: object) => void, id: number) {
 	dispatch({ type: 'TOGGLE_TASK', payload: { id } });
 }
 
-export function removeTask(dispatch, id) {
+export function removeTask(dispatch: (action: object) => void, id: number) {
 	dispatch({ type: 'REMOVE_TASK', payload: { id } });
 }
 
-export function renameTask(dispatch, id, newName) {
+export function renameTask(
+	dispatch: (action: object) => void,
+	id: number,
+	newName: string
+) {
 	dispatch({
 		type: 'RENAME_TASK',
 		payload: { id, newName }
